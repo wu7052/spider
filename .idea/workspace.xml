@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="82bbae8c-2aa6-47d7-a1ab-2634a9d82efb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/data_processor/data_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/data_processor/data_process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/fetcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/spider.py" afterDir="false" />
-    </list>
+    <list default="true" id="82bbae8c-2aa6-47d7-a1ab-2634a9d82efb" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +29,7 @@
     <session id="-1873686054">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="14" />
+          <entry key="project.closed" value="15" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="1" />
@@ -81,7 +76,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/Scripts/spider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
+            <state relative-caret-position="271">
               <caret line="30" column="89" selection-start-line="30" selection-start-column="89" selection-end-line="30" selection-end-column="89" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -105,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Scripts/data_processor/data_process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+            <state relative-caret-position="456">
+              <caret line="63" column="21" lean-forward="true" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -322,14 +317,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.490099" visible="true" weight="0.29264393" />
-      <window_info id="Structure" order="1" sideWeight="0.509901" side_tool="true" visible="true" weight="0.29264393" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4907709" visible="true" weight="0.29264393" />
+      <window_info id="Structure" order="1" sideWeight="0.5092291" side_tool="true" visible="true" weight="0.29264393" />
       <window_info id="Favorites" order="2" sideWeight="0.50165015" side_tool="true" weight="0.2553305" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34201956" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34201956" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3984799" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -469,8 +463,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Scripts/data_processor/data_process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+        <state relative-caret-position="456">
+          <caret line="63" column="21" lean-forward="true" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
@@ -479,7 +473,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Scripts/spider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
+        <state relative-caret-position="271">
           <caret line="30" column="89" selection-start-line="30" selection-start-column="89" selection-end-line="30" selection-end-column="89" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
