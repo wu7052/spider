@@ -7,6 +7,9 @@ import re
 import chardet
 import sys
 import io
+from jsonpath import jsonpath
+import json
+
 
 class Processor:
 
@@ -23,18 +26,42 @@ class Page_Parse:
     def __init__(self, page_data):
         self.page_data = page_data
 
-    def parse (self):
-        print ("start to parse Page Data ...\n")
-        soup = BeautifulSoup(self.page_data.data, "html.parser")
-        print(chardet.detect(self.page_data.data))
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf8')
-        print(self.page_data.data.decode("utf-8"))
-        #open('d:\\2countries2.html', 'w').write(str(self.page_data.data.decode("gbk ")))
+    def parse(self, data=None):
+        print("start to parse Page Data ...\n")
 
-        #for tag in  soup.find_all('tbody' > 'tr' > 'td' > 'a' , href = re.compile(r'/assortment/stock/list/info/company/index.shtml\?COMPANY_CODE=')):
-        #   print (tag.string )
-        print (soup.find('div',{'class':'table-responsive sse_table_T01 tdclickable'}))
+        if data == 'html':
+            soup = BeautifulSoup(self.page_data.data, "html.parser")
+            print(chardet.detect(self.page_data.data))
+            sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf8')
+            print(self.page_data.data.decode("utf-8"))
+            print(soup.find('div', {'class': 'table-responsive sse_table_T01 tdclickable'}))
+        elif data == 'json':
+            json_obj = json.loads(self.page_data)
+            print("[parse json obj]:")
+            company_code = jsonpath(json_obj, '$..pageHelp..COMPANY_CODE')  # 公司/A股代码
+            company_abbr = jsonpath(json_obj, '$..pageHelp..COMPANY_ABBR')  # 公司/A股简称
+            totalShares = jsonpath(json_obj, "$..pageHelp..totalShares")  # A股总资本
+            totalFlowShares = jsonpath(json_obj, '$..pageHelp..totalFlowShares')  # A股流动资本
+            """
+            df = pd.DataFrame(company_code,
+                              index=range(1, len(company_code) + 1),
+                              columns=['A股代码'])
 
-#data = np.random.randn(40).reshape(8,5)
+            df['A股简称'] = pd.Series(company_abbr, index=df.index)
+            df['A股总资本'] = pd.Series(totalShares, index=df.index)
+            df['A股流动资本'] = pd.Series(totalFlowShares, index=df.index)
+            """
 
-#frame = pd.DataFrame(data,columns=['A','B','C','D','E'])
+            stock_matix = [company_code, company_abbr ,totalShares, totalFlowShares]
+            df = pd.DataFrame(stock_matix)
+            df1 = df.T
+            df1.rename(columns={0: 'ID', 1: 'Name',2: 'Total Shares',3: 'Flow Shares'}, inplace=True)
+            #df1.sort_values(by=['Total Shares'], inplace=True)
+            # print(df1.describe())
+            print(df1)
+        else:
+            print("[Type] shall be not None")
+            return -1
+# data = np.random.randn(40).reshape(8,5)
+
+# frame = pd.DataFrame(data,columns=['A','B','C','D','E'])
