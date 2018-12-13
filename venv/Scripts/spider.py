@@ -28,13 +28,14 @@ page = 1
 
 url='http://query.sse.com.cn/security/stock/getStockListData2.do?&jsonCallBack=jsonpCallback99887&' \
     'isPagination=true&stockCode=&csrcCode=&areaName=&stockType=1&pageHelp.cacheSize='+str(page)+\
-    '&pageHelp.beginPage='+str(page)+'&pageHelp.pageSize=25&pageHelp.pageNo='+str(page)+'&_=1517320503161'
+    '&pageHelp.beginPage='+str(page)+'&pageHelp.pageSize=25&pageHelp.pageNo='+str(page)+'&pageHelp.endPage='+str(page)+'1&_=1517320503161'
 
 page_data_str = fd.get_page(url)
 json_str = '{"content":'+ page_data_str[19:-1] +'}'
 print(json_str)
 page = Page_Parse(json_str)
 page.parse('json')
+print("total page : {}".format(page.total_page))
 #
 
 

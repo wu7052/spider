@@ -25,6 +25,7 @@ class Page_Parse:
 
     def __init__(self, page_data):
         self.page_data = page_data
+        self.total_page = 0
 
     def parse(self, data=None):
         print("start to parse Page Data ...\n")
@@ -42,6 +43,8 @@ class Page_Parse:
             company_abbr = jsonpath(json_obj, '$..pageHelp..COMPANY_ABBR')  # 公司/A股简称
             totalShares = jsonpath(json_obj, "$..pageHelp..totalShares")  # A股总资本
             totalFlowShares = jsonpath(json_obj, '$..pageHelp..totalFlowShares')  # A股流动资本
+            totalPage = jsonpath(json_obj, '$..pageHelp.pageCount')
+            self.total_page = totalPage
             """
             df = pd.DataFrame(company_code,
                               index=range(1, len(company_code) + 1),
@@ -58,7 +61,7 @@ class Page_Parse:
             df1.rename(columns={0: 'ID', 1: 'Name',2: 'Total Shares',3: 'Flow Shares'}, inplace=True)
             #df1.sort_values(by=['Total Shares'], inplace=True)
             # print(df1.describe())
-            print(df1)
+            #print(df1)
         else:
             print("[Type] shall be not None")
             return -1
