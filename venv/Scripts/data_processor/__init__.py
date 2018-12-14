@@ -13,7 +13,7 @@ sys.path.insert(0,workpath)
 #print("@__init__ sys.path new:",sys.path)
 from data_process import Processor
 from data_process import Page_Parse
-
+from database import DB_OP
 
 #sys.path.append('../')
 #print("@__init__ sys.path.append",sys.path)
