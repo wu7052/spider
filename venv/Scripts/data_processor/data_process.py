@@ -5,6 +5,7 @@ import sys
 import io
 from jsonpath import jsonpath
 import json
+import logging
 # import numpy as np
 # import xlwt as wt
 # import xlrd as rd
@@ -27,14 +28,14 @@ class Page_Parse:
         self.total_page = 0
 
     def parse(self, data=None):
-        print("start to parse Page Data ...\n")
+        logging.debug("start to parse Page Data ...\n")
 
         if data == 'html':
             soup = BeautifulSoup(self.page_data.data, "html.parser")
             print(chardet.detect(self.page_data.data))
             sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf8')
-            print(self.page_data.data.decode("utf-8"))
-            print(soup.find('div', {'class': 'table-responsive sse_table_T01 tdclickable'}))
+            # logging.debug('[Data_Process]{}'.format(self.page_data.data.decode("utf-8")))
+            # logging.debug('[Data_Process]{}'.format(soup.find('div', {'class': 'table-responsive sse_table_T01 tdclickable'})))
         elif data == 'json':
             json_obj = json.loads(self.page_data)
             # print("[parse json obj]:")
@@ -64,7 +65,7 @@ class Page_Parse:
             #print(df1)
             return df1
         else:
-            print("[Type] shall be not None")
+            # logging.debug("[Data_Process] [Type] shall be not None")
             return None
 # data = np.random.randn(40).reshape(8,5)
 

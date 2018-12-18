@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import pandas_datareader.data as web
 import chardet
-
+import logging
 
 class Fetcher:
     # code = ""
@@ -15,18 +15,19 @@ class Fetcher:
     def update(self):
         tmp = self.stock.iloc[0]
         self.stock.iloc[0] = tmp * 10
-        print('\n----------------------------\n')
-        print(self.stock.head(5))
+        # logging.debug('[fetcher]\n----------------------------\n')
+        # logging.debug('[fetcher]'+self.stock.head(5))
 
     def drop(self):
-        print(self.stock.drop('Adj Close', axis=1).head(5))
-        print('\n----------------------------\n')
-        print(self.stock.head(5))
+        pass
+        # logging.debug('[fetcher]'+self.stock.drop('Adj Close', axis=1).head(5))
+        # logging.debug('\n----------------------------\n')
+        # logging.debug('[fetcher]'+self.stock.head(5))
 
     def fetch(self, start, end):
         self.stock = web.DataReader(self.code, "yahoo", start, end)
-        print(self.stock.head(5))
-        print('\n----------------------------\n')
+        # logging.debug('[fetcher]'+self.stock.head(5))
+        # logging.debug('[fetcher]\n----------------------------\n')
         return self.stock
 
     def get_page(self, url):
@@ -49,15 +50,16 @@ class Fetcher:
         except Exception as e:
             raise e
         finally:
-            print(raw_data.status)  # 200
+            # logging.debug('[fetcher]{}'.format(raw_data.status)) # 200
+            pass
 
         # 获得html源码,utf-8解码
-        print(chardet.detect(raw_data.data))
-        print(type(raw_data.data))
+        # logging.debug(chardet.detect(raw_data.data))
+        # logging.debug(type(raw_data.data))
         #print(chardet.detect(unicode))
         #print(type(raw_data.data))
         unicode = raw_data.data.decode("utf-8")
-        print(type(unicode))
+        # print(type(unicode))
         
         return unicode
 
